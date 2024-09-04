@@ -35,12 +35,22 @@ def get_heading():
 
 # Classify color based on RGB values
 def classify_color(r, g, b):
-    if r > g and r > b:
+    if r > 15 and r > g + b:
         return "Red"
-    elif g > r and g > b:
+    elif g > 15 and g > r + b:
         return "Green"
-    elif b > r and b > g:
+    elif b > 15 and b > r + g:
         return "Blue"
+    elif r > 10 and g > 10 and b < 10:
+        return "Yellow"
+    elif g > 10 and b > 10 and r < 10:
+        return "Cyan"
+    elif r > 10 and b > 10 and g < 10:
+        return "Magenta"
+    elif r > 20 and g > 20 and b > 20:
+        return "White"
+    elif r < 5 and g < 5 and b < 5:
+        return "Black"
     else:
         return "Unknown"
 
